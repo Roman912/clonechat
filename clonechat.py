@@ -31,6 +31,9 @@ def get_config_data(path_file_config):
 def foward_photo(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     photo_id = message.photo.file_id
     try:
         tg.send_photo(
@@ -52,6 +55,9 @@ def foward_photo(message, destination_chat):
 def foward_text(message, destination_chat):
 
     text = message.text.markdown
+    # Проверяем длину подписи
+    if len(text) > 1024:
+        text = text[:1024]  # Обрезаем до 1024 символов
     try:
         tg.send_message(
             chat_id=destination_chat,
@@ -73,6 +79,9 @@ def foward_text(message, destination_chat):
 def foward_sticker(message, destination_chat):
 
     sticker_id = message.sticker.file_id
+    # Проверяем длину подписи
+    if len(sticker_id) > 1024:
+        sticker_id = sticker_id[:1024]  # Обрезаем до 1024 символов
     try:
         tg.send_sticker(chat_id=destination_chat, sticker=sticker_id)
         return
@@ -89,6 +98,9 @@ def foward_sticker(message, destination_chat):
 def foward_document(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     document_id = message.document.file_id
     try:
         tg.send_document(
@@ -111,6 +123,9 @@ def foward_document(message, destination_chat):
 def foward_animation(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     animation_id = message.animation.file_id
     try:
         tg.send_animation(
@@ -133,6 +148,9 @@ def foward_animation(message, destination_chat):
 def foward_audio(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     audio_id = message.audio.file_id
     try:
         tg.send_audio(
@@ -155,6 +173,9 @@ def foward_audio(message, destination_chat):
 def foward_voice(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     voice_id = message.voice.file_id
     try:
         tg.send_voice(
@@ -197,6 +218,9 @@ def foward_video_note(message, destination_chat):
 def foward_video(message, destination_chat):
 
     caption = get_caption(message)
+    # Проверяем длину подписи
+    if len(caption) > 1024:
+        caption = caption[:1024]  # Обрезаем до 1024 символов
     video_id = message.video.file_id
     try:
         tg.send_video(
